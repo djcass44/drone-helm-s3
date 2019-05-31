@@ -21,6 +21,8 @@ fi
 helm repo add aws s3://${PLUGIN_S3_BUCKET}/${PLUGIN_S3_PATH}
 
 # package
+# TODO check if there are any issues with using /drone/src
+# e.g. will it always be /drone/src or is that a drone-git thing?
 cp -r /drone/src /drone/${PLUGIN_CHART_NAME}
 cd /drone
 
