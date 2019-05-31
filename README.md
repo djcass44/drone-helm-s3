@@ -6,4 +6,34 @@ This plugin allows Drone to use the [helm-s3](https://github.com/hypnoglow/helm-
 
 ### Usage
 
-// TODO
+```yaml
+kind: pipeline
+name: default
+
+steps:
+  - name: publish
+    image: djcass44/drone-helm-s3:latest
+    pull: always
+    settings:
+      aws_access_key:
+        from_secret: AWS_ACCESS_KEY
+      aws_secret_key:
+        from_secret: AWS_SECRET_KEY
+      aws_region: ap-southeast-2
+      s3_bucket: <your bucket name>
+      s3_path: <path to put charts (helm-s3 uses 'charts')>
+      chart_name: <chart name>
+      force: <true/false>
+```
+
+`aws_access_key`: (optional) should use IAM profile if not provided, however this has not been tested yet.
+
+`aws_secret_key`: (optional)
+
+`aws_session_token`: (optional)
+
+`aws_region`: (optional)
+
+`chart_name`: (required)
+
+`force`: (optional) whether to overwrite the tarball if there is already an existing one.
