@@ -29,7 +29,7 @@ cd /drone
 helm package ${PLUGIN_CHART_NAME}
 
 # check that the tarball was created
-if [[ ls ${PLUGIN_CHART_NAME}-*.tgz 1> /dev/null ]]; then
+if ls ${PLUGIN_CHART_NAME}-*.tgz 1> /dev/null 2>&1; then
 	echo "INFO: Found tarball"
 else
 	echo "ERROR: Couldn't find tarball"
