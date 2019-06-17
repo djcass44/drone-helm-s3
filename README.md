@@ -37,3 +37,11 @@ steps:
 `chart_name`: (required)
 
 `force`: (optional) whether to overwrite the tarball if there is already an existing one.
+
+#### TODO
+
+* [ ] Add `context` to indicate that the chart is in a subdirectory
+
+* [ ] Ensure IAM roles work
+
+* [ ] Add option to re-index after a successful push
